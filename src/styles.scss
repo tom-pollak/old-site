@@ -1,0 +1,14 @@
+@import "colors.scss";
+
+p {
+	color: $first-color
+}
+// :root {
+// 	--color-hue: 180;
+// 	--color-invert-hue: 20;
+// }
+
+// p {
+// 	color: mix-neutral(hsl(color(hue), 100%, 50%), hsl(color(invert-hue), 100%, 50%), color(hue), color(invert-hue));
+// 	// color: red;
+// }
