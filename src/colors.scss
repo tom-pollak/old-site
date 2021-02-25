@@ -1,11 +1,5 @@
-// $hue: 0;
-// @for $i from 0 through 360 {
-// 	input[data-value="#{$i}"] {
-// 		$hue: $i;
-// 	}
-// }
-// Pick a starting color to mix with and select a hue between 0-360 (check the color wheel!)
-$hue: get("hue");
+// $hue: get("hue");
+$hue: 180;
 $first-color: hsl($hue, 100%, 50%);
 
 
