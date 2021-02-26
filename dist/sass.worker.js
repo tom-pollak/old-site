@@ -1,23 +1,23 @@
-'use strict';
+"use strict";
 /*global Sass, postMessage, onmessage:true, importScripts*/
-importScripts('libsass.js', 'sass.js');
+importScripts("libsass.js", "sass.js");
 
 var _importerDone;
-var _importerInit = function(request, done) {
+var _importerInit = function (request, done) {
   _importerDone = done;
   postMessage({
-    command: '_importerInit',
-    args: [request]
+    command: "_importerInit",
+    args: [request],
   });
 };
 
 var methods = {
-  _importerFinish: function(result) {
+  _importerFinish: function (result) {
     _importerDone && _importerDone(result);
     _importerDone = null;
   },
 
-  importer: function(callback) {
+  importer: function (callback) {
     // an importer was un/set
     // we need to register a callback that will pipe
     // things through the worker
@@ -26,14 +26,13 @@ var methods = {
 };
 
 onmessage = function (event) {
-
   function done(result) {
     try {
       // may throw DataCloneError: Failed to execute 'postMessage' on 'WorkerGlobalScope': An object could not be cloned.
       // because of Error instances not being clonable (wtf?)
       postMessage({
         id: event.data.id,
-        result: result
+        result: result,
       });
     } catch (e) {
       if (!result.error) {
@@ -52,7 +51,7 @@ onmessage = function (event) {
 
       postMessage({
         id: event.data.id,
-        result: result
+        result: result,
       });
     }
   }
@@ -62,7 +61,7 @@ onmessage = function (event) {
   if (!method) {
     return done({
       line: 0,
-      message: 'Unknown command ' + event.action
+      message: "Unknown command " + event.action,
     });
   }
 
