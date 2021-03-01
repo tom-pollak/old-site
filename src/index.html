@@ -27,12 +27,12 @@
   <!-- <script src="src&#45;sass/sass.resolve&#45;paths.js"></script> -->
 
 	<script src="dist/sass.js"></script>
-	<!-- <script> -->
-	<!-- 	var sass = new Sass('dist/sass.js'); -->
-	<!-- 	var scss = '$someVar: 123px; .some&#45;selector { width: $someVar; }'; -->
-	<!-- 	sass.compile(scss, function(result) { -->
-	<!-- 		console.log(result); -->
-	<!-- 	}); -->
-	<!-- </script> -->
-	<script src="dist/reload.js"></script>
+	<script>
+		var sass = new Sass();
+		var scss = 'p { color: red }';
+		sass.compile(scss, function callback(result) {
+			console.log(result);
+		});
+	</script>
+	<!-- <script src="dist/reload.js"></script> -->
 </html>

@@ -1,6 +1,6 @@
-/*! sass.js - v0.11.1 (f286436) - built 2019-10-20
-  providing libsass 3.6.2 (4da7c4bd)
-  via emscripten 1.38.31 (040e49a)
+/*! sass.js - v0.9.4 (bfade3e) - built 2015-10-27
+  providing libsass 3.3.1 (42e22fb)
+  via emscripten 1.35.4 (e37f843)
  */
 
 (function (root, factory) {
@@ -25,8 +25,7 @@
       "use strict";
 
       // in Node things are rather simple
-      var hasDir = typeof __dirname !== "undefined";
-      if (hasDir) {
+      if (typeof __dirname !== "undefined") {
         return __dirname;
       }
 
@@ -185,6 +184,7 @@
   var commands =
     "writeFile readFile listFiles removeFile clearFiles lazyFiles preloadFiles options compile compileFile";
   commands.split(" ").forEach(function (command) {
+    console.log(command);
     Sass.prototype[command] = function () {
       var callback = slice.call(arguments, -1)[0];
       var args = slice.call(arguments, 0, -1);
@@ -209,4 +209,3 @@
   Sass.setWorkerUrl(SASSJS_RELATIVE_PATH + "/sass.worker.js");
   return Sass;
 });
-
