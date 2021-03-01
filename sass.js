@@ -184,7 +184,6 @@
   var commands =
     "writeFile readFile listFiles removeFile clearFiles lazyFiles preloadFiles options compile compileFile";
   commands.split(" ").forEach(function (command) {
-    console.log(command);
     Sass.prototype[command] = function () {
       var callback = slice.call(arguments, -1)[0];
       var args = slice.call(arguments, 0, -1);
