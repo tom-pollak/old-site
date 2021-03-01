@@ -26,11 +26,12 @@
   <!-- <script src="src&#45;sass/sass.api.js"></script> -->
   <!-- <script src="src&#45;sass/sass.resolve&#45;paths.js"></script> -->
 
-	<script src="sass.js"></script>
+	<!-- <script src="dist/sass.worker.js"></script> -->
+	<script src="https://cdn.rawgit.com/medialize/sass.js/master/dist/sass.worker.js"></script>
 	<script>
-		var sass = new Sass();
+		// var sass = new Sass();
 		var scss = 'p { color: red }';
-		sass.compile(scss, function callback(result) {
+		Sass.compile(scss, function callback(result) {
 			console.log(result);
 		});
 	</script>
