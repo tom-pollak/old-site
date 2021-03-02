@@ -1,4 +1,3 @@
-// import Worker from "./js/sass.worker.js";
 import Sass from "./sass.js";
 
 var sass = new Sass("./src/js/sass.worker.js");

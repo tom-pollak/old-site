@@ -53,8 +53,8 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.worker\.js$/i,
-        use: { loader: "worker-loader" },
+        test: /\.worker\.js$/,
+        loader: "worker-loader",
         options: {
           esModule: false,
         },
