@@ -53,6 +53,13 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.worker\.js$/i,
+        use: { loader: "worker-loader" },
+        options: {
+          esModule: false,
+        },
+      },
+      {
         test: /\.scss$/,
         use: [
           {
