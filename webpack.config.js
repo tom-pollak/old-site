@@ -1,7 +1,4 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const sass = require("node-sass");
-const sassUtils = require("node-sass-utils")(sass);
-const sassVars = require(__dirname + "/src/js/theme.js");
 const path = require("path");
 const multi = require("multi-loader");
 
@@ -9,39 +6,44 @@ const PATHS = {
   src: path.join(__dirname, "src"),
   dist: path.join(__dirname, "dist"),
 };
+
+const sass = require("node-sass");
+const sassUtils = require("node-sass-utils")(sass);
+const sassVars = require(__dirname + "/src/js/theme.js");
+
 // Convert js strings to dimenssions
-const convertStringToSassDimension = function (result) {
-  // Only attempt to convert strings
-  if (typeof result !== "string") {
-    return result;
-  }
-
-  const cssUnits = [
-    "rem",
-    "em",
-    "vh",
-    "vw",
-    "vmin",
-    "vmax",
-    "ex",
-    "%",
-    "px",
-    "cm",
-    "mm",
-    "in",
-    "pt",
-    "pc",
-    "ch",
-  ];
-  const parts = result.match(/[a-zA-Z]+|[0-9]+/g);
-  const value = parts[0];
-  const unit = parts[parts.length - 1];
-  if (cssUnits.indexOf(unit) !== -1) {
-    result = new sassUtils.SassDimension(parseInt(value, 10), unit);
-  }
-
-  return result;
-};
+// const convertStringToSassDimension = function (result) {
+//   // Only attempt to convert strings
+//   if (typeof result !== "string") {
+//     return result;
+//   }
+//
+//   const cssUnits = [
+//     "rem",
+//     "em",
+//     "vh",
+//     "vw",
+//     "vmin",
+//     "vmax",
+//     "ex",
+//     "%",
+//     "px",
+//     "cm",
+//     "mm",
+//     "in",
+//     "pt",
+//     "pc",
+//     "ch",
+//   ];
+//   const parts = result.match(/[a-zA-Z]+|[0-9]+/g);
+//   const value = parts[0];
+//   const unit = parts[parts.length - 1];
+//   if (cssUnits.indexOf(unit) !== -1) {
+//     result = new sassUtils.SassDimension(parseInt(value, 10), unit);
+//   }
+//
+//   return result;
+// };
 
 module.exports = {
   mode: "development",
@@ -62,7 +64,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: multi("raw-loader", "style-loader!css-loader!sass-loader"),
+        loader: multi("style-loader!css-loader!sass-loader", "raw-loader"),
         // use: [
         //   "style-loader",
         //   "css-loader",
@@ -101,7 +103,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html",
+      template: "./templates/index.html",
       filename: "index.html",
     }),
   ],

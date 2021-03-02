@@ -1,5 +1,41 @@
 @import "color-formatting.scss";
 
+$primary-color: harmonious-mix($second-color, $first-color);
+$primary-neutral: mix-neutral($primary-color);
+$primary-neutral-dark: darken($primary-neutral, 33%);
+$primary-neutral-light: lighten($primary-neutral, 33%);
+$primary-neutral-desaturated: desaturate-neutral($primary-neutral);
+$primary-light: lighten($primary-color, 33%);
+$primary-contrast: pick-contrast($primary-color);
+
+$secondary-color: harmonious-mix($first-color, $second-color);
+$secondary-neutral: mix-neutral($secondary-color);
+$secondary-neutral-dark: darken($secondary-neutral, 33%);
+$secondary-neutral-light: lighten($secondary-neutral, 33%);
+$secondary-neutral-desaturated: desaturate-neutral($secondary-neutral);
+$secondary-light: lighten($secondary-color, 33%);
+$secondary-contrast: pick-contrast($secondary-color);
+
+$white: #fcf8f8;
+$black: #2b2b2b;
+
+
+h1 {
+	color: $secondary-neutral-dark;
+}
+
+button {
+	background-color: $primary-color;
+}
+
+body {
+	background-color: $white;
+}
+
+div.name {
+	background-color: $secondary-neutral-light
+}
+
 p {
-	color: $first-color
+	color: $black
 }
