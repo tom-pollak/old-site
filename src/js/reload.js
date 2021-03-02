@@ -1,10 +1,10 @@
+import "./sass.worker.js";
 import Sass from "./sass.js";
 
-var sass = new Sass("./src/js/sass.worker.js");
-console.log(sass);
+var sass = new Sass(__webpack_require__.p + "bundle.worker.js");
 
 sass.preloadFiles(
-  "../sass/",
+  "../src/sass/",
   "",
   ["styles.scss", "colors.scss", "hue.scss"],
   function callback() {}
