@@ -1,7 +1,7 @@
 // $hue: get("hue");
-$hue: 180;
-$first-color: hsl($hue, 100%, 50%);
+@import "hue.scss";
 
+$first-color: hsl($hue, 100%, 50%);
 
 // Find the hue 180 degrees away on the color wheel
 $second-color: complement($first-color);

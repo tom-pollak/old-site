@@ -1,6 +1,4 @@
 function getHue() {
-  console.log("getHue");
-
   try {
     var rangeSlider = document.getElementById("color-picker");
     return rangeSlider.value;

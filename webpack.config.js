@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const sass = require("node-sass");
 const sassUtils = require("node-sass-utils")(sass);
-const sassVars = require(__dirname + "/src/theme.js");
+const sassVars = require(__dirname + "/src/js/theme.js");
 const path = require("path");
 
 const PATHS = {
