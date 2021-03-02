@@ -2,7 +2,6 @@ import "./sass.worker.js";
 import Sass from "./sass.js";
 
 var sass = new Sass(__webpack_require__.p + "bundle.worker.js");
-
 sass.preloadFiles(
   "../src/sass/",
   "",
@@ -16,24 +15,11 @@ rangeSlider.addEventListener("change", handleUpdate);
 
 function handleUpdate() {
   var scss = "$hue: " + this.value + ";";
-  // sass.readFile("colors.scss", function callback(content) {
-  //   scss += content;
-  // });
-  // console.log(scss);
-  // sass.readFile("styles.scss", function callback(content) {
-  //   console.log(content);
-  //   scss += content;
-  // });
-
   sass.writeFile("hue.scss", scss);
-  sass.readFile("hue.scss", function callback(content) {
-    console.log(content);
-  });
-  sass.readFile("styles.scss", function callback(content) {
-    console.log(content);
-  });
   sass.compileFile("styles.scss", function callback(result) {
-    console.log(result.text);
-    sass.writeFile("styles.scss", result.text);
+    var style = document.createElement("style");
+    style.type = "text/css";
+    style.innerHTML = result.text;
+    document.getElementsByTagName("head")[0].appendChild(style);
   });
 }

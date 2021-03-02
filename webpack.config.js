@@ -1,8 +1,11 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { loader } = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const sass = require("node-sass");
 const sassUtils = require("node-sass-utils")(sass);
 const sassVars = require(__dirname + "/src/js/theme.js");
 const path = require("path");
+const multi = require("multi-loader");
 
 const PATHS = {
   src: path.join(__dirname, "src"),
@@ -61,42 +64,42 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: [
-          {
-            loader: "style-loader",
-          },
-          {
-            loader: "css-loader",
-          },
-          {
-            loader: "sass-loader",
-            options: {
-              sassOptions: {
-                functions: {
-                  "get($keys)": function (keys) {
-                    keys = keys.getValue().split(".");
-                    var result = sassVars;
-                    var i;
-                    for (i = 0; i < keys.length; i++) {
-                      result = result[keys[i]];
-                      // Convert to SassDimension if dimenssion
-                      if (typeof result === "string") {
-                        result = convertStringToSassDimension(result);
-                      } else if (typeof result === "object") {
-                        Object.keys(result).forEach(function (key) {
-                          var value = result[key];
-                          result[key] = convertStringToSassDimension(value);
-                        });
-                      }
-                    }
-                    result = sassUtils.castToSass(result);
-                    return result;
-                  },
-                },
-              },
-            },
-          },
-        ],
+        loader: multi(
+          "file-loader",
+          MiniCssExtractPlugin.loader + "!css-loader!sass-loader"
+        ),
+        // use: [
+        //   // "style-loader",
+        //   "css-loader",
+        //   {
+        //     loader: "sass-loader",
+        //     options: {
+        //       sassOptions: {
+        //         functions: {
+        //           "get($keys)": function (keys) {
+        //             keys = keys.getValue().split(".");
+        //             var result = sassVars;
+        //             var i;
+        //             for (i = 0; i < keys.length; i++) {
+        //               result = result[keys[i]];
+        //               // Convert to SassDimension if dimenssion
+        //               if (typeof result === "string") {
+        //                 result = convertStringToSassDimension(result);
+        //               } else if (typeof result === "object") {
+        //                 Object.keys(result).forEach(function (key) {
+        //                   var value = result[key];
+        //                   result[key] = convertStringToSassDimension(value);
+        //                 });
+        //               }
+        //             }
+        //             result = sassUtils.castToSass(result);
+        //             return result;
+        //           },
+        //         },
+        //       },
+        //     },
+        //   },
+        // ],
       },
     ],
   },
@@ -105,5 +108,6 @@ module.exports = {
       template: "./src/index.html",
       filename: "index.html",
     }),
+    new MiniCssExtractPlugin({ filename: "[name].css" }),
   ],
 };
