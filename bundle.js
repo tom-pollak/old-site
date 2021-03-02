@@ -86,18 +86,6 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./node_modules/file-loader/dist/cjs.js!./src/sass/styles.scss":
-/*!*********************************************************************!*\
-  !*** ./node_modules/file-loader/dist/cjs.js!./src/sass/styles.scss ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"7bf56af1ba91112b59d664324258bf4e.scss\");\n\n//# sourceURL=webpack:///./src/sass/styles.scss?./node_modules/file-loader/dist/cjs.js");
-
-/***/ }),
-
 /***/ "./node_modules/mini-css-extract-plugin/dist/loader.js!./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/sass/styles.scss":
 /*!*****************************************************************************************************************************************************************!*\
   !*** ./node_modules/mini-css-extract-plugin/dist/loader.js!./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/sass/styles.scss ***!
@@ -110,6 +98,30 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/sass/colors.scss":
+/*!********************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/sass/colors.scss ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"// $hue: get(\\\"hue\\\");\\n@import \\\"hue.scss\\\";\\n\\n$first-color: hsl($hue, 100%, 50%);\\n\\n// Find the hue 180 degrees away on the color wheel\\n$second-color: complement($first-color);\\n\\n// Check if the color is a cool color\\n@function is-cool-color($color) {\\n\\t@return hue($color) < 300 and hue($color) > 120;\\n}\\n\\n// Check if the color is high value or low value\\n@function is-high-key-value($color) {\\n\\t@return hue($color) > 30 and hue($color) < 140;\\n}\\n\\n//Establish a relationship (similar lighting conditions) between colors.\\n@function harmonious-mix($mix, $base) {\\n\\t@if (is-cool-color($mix)){\\n\\t\\t@if is-high-key-value($base) {\\n\\t\\t\\t@return mix($mix, $base, 11%);\\n\\t\\t}\\n\\t\\t@else {\\n\\t\\t\\t@return mix($mix, $base, 16%);\\n\\t\\t}\\n\\t}\\n\\t@else {\\n\\t\\t@if is-high-key-value($base) {\\n\\t\\t\\t@return mix($mix, $base, 13%);\\n\\t\\t}\\n\\t\\t@else {\\n\\t\\t\\t@return mix($mix, $base, 23%);\\n\\t\\t}\\n\\t}\\n}\\n\\n@function mix-neutral($color) {\\n\\t@if (is-highest-key-value($color)) {\\n\\t\\t@if is-high-key-value(complement($color)) {\\n\\t\\t\\t@return mix(complement($color), $color, 19%);\\n\\t\\t}\\n\\n\\t\\t@else {\\n\\t\\t\\t@return mix(complement($color), $color, 13%);\\n\\t\\t}\\n\\t}\\n\\t@else if (is-high-key-value($color)) {\\n\\t\\t@if is-high-key-value(complement($color)) {\\n\\t\\t\\t@return mix(complement($color), $color, 31%);\\n\\t\\t}\\n\\n\\t\\t@else {\\n\\t\\t\\t@return mix(complement($color), $color, 23%);\\n\\t\\t}\\n\\t}\\n\\t@else {\\n\\t\\t@if is-highest-key-value(complement($color)) {\\n\\t\\t\\t@return mix(complement($color), $color, 31%);\\n\\t\\t}\\n\\n\\t\\t@if is-high-key-value(complement($color)) {\\n\\t\\t\\t@return mix(complement($color), $color, 26%);\\n\\t\\t}\\n\\n\\t\\t@else {\\n\\t\\t\\t@return mix(complement($color), $color, 23%);\\n\\t\\t}\\n\\t}\\n}\\n\\n@function pick-contrast($color) {\\n\\t@if is-high-key-value($color){\\n\\t\\t@if lightness($color) < 30% {\\n\\t\\t\\t@return lighten(complement($color), 86);\\n\\t\\t}\\n\\n\\t\\t@else if lightness($color) > 70% {\\n\\t\\t\\t@return darken(complement($color), 68);\\n\\t\\t}\\n\\n\\t\\t@else {\\n\\t\\t\\t@return darken(complement($color), 53);\\n\\t\\t}\\n} @else {\\n\\t@if lightness($color) < 30% {\\n\\t\\t\\t@return lighten(complement($color), 86);\\n\\t\\t}\\n\\n\\t\\t@else if lightness($color) > 70% {\\n\\t\\t\\t@return darken(complement($color), 68);\\n\\t\\t}\\n\\n\\t\\t@else {\\n\\t\\t\\t@return lighten(complement($color), 53);\\n\\t\\t}\\n\\t}\\n}\\n\");\n\n//# sourceURL=webpack:///./src/sass/colors.scss?./node_modules/raw-loader/dist/cjs.js");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/sass/styles.scss":
+/*!********************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/sass/styles.scss ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"@import \\\"hue.scss\\\";\\n@import \\\"colors.scss\\\";\\n\\np {\\n\\tcolor: $first-color\\n}\\n\");\n\n//# sourceURL=webpack:///./src/sass/styles.scss?./node_modules/raw-loader/dist/cjs.js");
+
+/***/ }),
+
 /***/ "./src/js/reload.js":
 /*!**************************!*\
   !*** ./src/js/reload.js ***!
@@ -118,7 +130,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sass_worker_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sass.worker.js */ \"./src/js/sass.worker.js\");\n/* harmony import */ var _sass_worker_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_sass_worker_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _sass_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sass.js */ \"./src/js/sass.js\");\n/* harmony import */ var _sass_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_sass_js__WEBPACK_IMPORTED_MODULE_1__);\n\n\n\nvar sass = new _sass_js__WEBPACK_IMPORTED_MODULE_1___default.a(__webpack_require__.p + \"bundle.worker.js\");\nsass.preloadFiles(\n  \"../src/sass/\",\n  \"\",\n  [\"styles.scss\", \"colors.scss\", \"hue.scss\"],\n  function callback() {}\n);\n\nconst rangeSlider = document.getElementById(\"color-picker\");\n// rangeSlider.addEventListener(\"mousemove\", handleUpdate);\nrangeSlider.addEventListener(\"change\", handleUpdate);\n\nfunction handleUpdate() {\n  var scss = \"$hue: \" + this.value + \";\";\n  sass.writeFile(\"hue.scss\", scss);\n  sass.compileFile(\"styles.scss\", function callback(result) {\n    var style = document.createElement(\"style\");\n    style.type = \"text/css\";\n    style.innerHTML = result.text;\n    document.getElementsByTagName(\"head\")[0].appendChild(style);\n  });\n}\n\n\n//# sourceURL=webpack:///./src/js/reload.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sass_worker_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sass.worker.js */ \"./src/js/sass.worker.js\");\n/* harmony import */ var _sass_worker_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_sass_worker_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _sass_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sass.js */ \"./src/js/sass.js\");\n/* harmony import */ var _sass_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_sass_js__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _raw_loader_sass_styles_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !raw-loader!../sass/styles.scss */ \"./node_modules/raw-loader/dist/cjs.js!./src/sass/styles.scss\");\n/* harmony import */ var _raw_loader_sass_colors_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !raw-loader!../sass/colors.scss */ \"./node_modules/raw-loader/dist/cjs.js!./src/sass/colors.scss\");\n\n\n\n\n\n\nvar sass = new _sass_js__WEBPACK_IMPORTED_MODULE_1___default.a(__webpack_require__.p + \"bundle.worker.js\");\nsass.writeFile(\"colors.scss\", _raw_loader_sass_colors_scss__WEBPACK_IMPORTED_MODULE_3__[\"default\"]);\nsass.writeFile(\"styles.scss\", _raw_loader_sass_styles_scss__WEBPACK_IMPORTED_MODULE_2__[\"default\"]);\n\nconst rangeSlider = document.getElementById(\"color-picker\");\nrangeSlider.addEventListener(\"mousemove\", handleUpdate);\nrangeSlider.addEventListener(\"change\", handleUpdate);\n\nfunction handleUpdate() {\n  var scss = \"$hue: \" + this.value + \";\";\n  sass.writeFile(\"hue.scss\", scss);\n  sass.compileFile(\"styles.scss\", function callback(result) {\n    var style = document.getElementById(\"style\");\n    if (style == null) {\n      var style = document.createElement(\"style\");\n      style.id = \"style\";\n      style.type = \"text/css\";\n      style.innerHTML = result.text;\n      document.getElementsByTagName(\"head\")[0].appendChild(style);\n    } else {\n      style.innerHTML = result.text;\n    }\n  });\n}\n\n\n//# sourceURL=webpack:///./src/js/reload.js?");
 
 /***/ }),
 
@@ -174,7 +186,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _js_
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("__webpack_require__(/*! -!file-loader!./src/sass/styles.scss */ \"./node_modules/file-loader/dist/cjs.js!./src/sass/styles.scss\");\nmodule.exports = __webpack_require__(/*! -!./node_modules/mini-css-extract-plugin/dist/loader.js!css-loader!sass-loader!./src/sass/styles.scss */ \"./node_modules/mini-css-extract-plugin/dist/loader.js!./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/sass/styles.scss\");\n\n//# sourceURL=webpack:///./src/sass/styles.scss?");
+eval("__webpack_require__(/*! -!raw-loader!./src/sass/styles.scss */ \"./node_modules/raw-loader/dist/cjs.js!./src/sass/styles.scss\");\nmodule.exports = __webpack_require__(/*! -!./node_modules/mini-css-extract-plugin/dist/loader.js!css-loader!sass-loader!./src/sass/styles.scss */ \"./node_modules/mini-css-extract-plugin/dist/loader.js!./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/sass/styles.scss\");\n\n//# sourceURL=webpack:///./src/sass/styles.scss?");
 
 /***/ })
 
