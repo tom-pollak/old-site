@@ -1,4 +1,4 @@
-@import "color-formatting.scss";
+@import "theme.scss";
 
 $primary-color: harmonious-mix($second-color, $first-color);
 $primary-neutral: mix-neutral($primary-color);
