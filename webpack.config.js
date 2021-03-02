@@ -65,7 +65,7 @@ module.exports = {
       {
         test: /\.scss$/,
         loader: multi(
-          "file-loader",
+          "raw-loader",
           MiniCssExtractPlugin.loader + "!css-loader!sass-loader"
         ),
         // use: [
