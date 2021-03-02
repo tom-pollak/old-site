@@ -1,2 +1,3 @@
-import "./styles.scss";
+import "./sass/styles.scss";
 import "./theme.js";
+import "./reload.js";
