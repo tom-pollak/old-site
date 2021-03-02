@@ -1,0 +1,2 @@
+require("-!file-loader!/home/tom/projects/tom-pollak.github.io/src/sass/colors.scss");
+module.exports = require("-!/home/tom/projects/tom-pollak.github.io/node_modules/mini-css-extract-plugin/dist/loader.js!css-loader!sass-loader!/home/tom/projects/tom-pollak.github.io/src/sass/colors.scss");
