@@ -86,18 +86,6 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./node_modules/file-loader/dist/cjs.js!./src/sass/colors.scss":
-/*!*********************************************************************!*\
-  !*** ./node_modules/file-loader/dist/cjs.js!./src/sass/colors.scss ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"b85dee5921e8de079bfcfab382095462.scss\");\n\n//# sourceURL=webpack:///./src/sass/colors.scss?./node_modules/file-loader/dist/cjs.js");
-
-/***/ }),
-
 /***/ "./node_modules/file-loader/dist/cjs.js!./src/sass/styles.scss":
 /*!*********************************************************************!*\
   !*** ./node_modules/file-loader/dist/cjs.js!./src/sass/styles.scss ***!
@@ -130,7 +118,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sass_worker_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sass.worker.js */ \"./src/js/sass.worker.js\");\n/* harmony import */ var _sass_worker_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_sass_worker_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _sass_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sass.js */ \"./src/js/sass.js\");\n/* harmony import */ var _sass_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_sass_js__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _file_loader_sass_colors_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !file-loader!../sass/colors.scss */ \"./node_modules/file-loader/dist/cjs.js!./src/sass/colors.scss\");\n\n\n\n\nconsole.log(_file_loader_sass_colors_scss__WEBPACK_IMPORTED_MODULE_2__[\"default\"]);\n\nvar sass = new _sass_js__WEBPACK_IMPORTED_MODULE_1___default.a(__webpack_require__.p + \"bundle.worker.js\");\n\nsass.preloadFiles(\n  \"../src/sass/\",\n  \"\",\n  [\"styles.scss\", \"colors.scss\", \"hue.scss\", _file_loader_sass_colors_scss__WEBPACK_IMPORTED_MODULE_2__[\"default\"]],\n  function callback() {}\n);\n\nsass.readFile(_file_loader_sass_colors_scss__WEBPACK_IMPORTED_MODULE_2__[\"default\"], function callback(content) {\n  console.log(content);\n});\n\nconst rangeSlider = document.getElementById(\"color-picker\");\n// rangeSlider.addEventListener(\"mousemove\", handleUpdate);\nrangeSlider.addEventListener(\"change\", handleUpdate);\n\nfunction handleUpdate() {\n  var scss = \"$hue: \" + this.value + \";\";\n  // sass.readFile(\"colors.scss\", function callback(content) {\n  //   scss += content;\n  // });\n  // console.log(scss);\n  // sass.readFile(\"styles.scss\", function callback(content) {\n  //   console.log(content);\n  //   scss += content;\n  // });\n\n  sass.writeFile(\"hue.scss\", scss);\n  sass.readFile(\"hue.scss\", function callback(content) {\n    console.log(content);\n  });\n  sass.readFile(\"styles.scss\", function callback(content) {\n    console.log(content);\n  });\n  sass.compileFile(\"styles.scss\", function callback(result) {\n    console.log(result.text);\n    sass.writeFile(\"styles.scss\", result.text);\n  });\n}\n\n\n//# sourceURL=webpack:///./src/js/reload.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sass_worker_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sass.worker.js */ \"./src/js/sass.worker.js\");\n/* harmony import */ var _sass_worker_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_sass_worker_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _sass_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sass.js */ \"./src/js/sass.js\");\n/* harmony import */ var _sass_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_sass_js__WEBPACK_IMPORTED_MODULE_1__);\n\n\n\nvar sass = new _sass_js__WEBPACK_IMPORTED_MODULE_1___default.a(__webpack_require__.p + \"bundle.worker.js\");\nsass.preloadFiles(\n  \"../src/sass/\",\n  \"\",\n  [\"styles.scss\", \"colors.scss\", \"hue.scss\"],\n  function callback() {}\n);\n\nconst rangeSlider = document.getElementById(\"color-picker\");\n// rangeSlider.addEventListener(\"mousemove\", handleUpdate);\nrangeSlider.addEventListener(\"change\", handleUpdate);\n\nfunction handleUpdate() {\n  var scss = \"$hue: \" + this.value + \";\";\n  sass.writeFile(\"hue.scss\", scss);\n  sass.compileFile(\"styles.scss\", function callback(result) {\n    var style = document.createElement(\"style\");\n    style.type = \"text/css\";\n    style.innerHTML = result.text;\n    document.getElementsByTagName(\"head\")[0].appendChild(style);\n  });\n}\n\n\n//# sourceURL=webpack:///./src/js/reload.js?");
 
 /***/ }),
 
