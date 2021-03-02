@@ -1,4 +1,4 @@
-import "./js/theme.js";
+import "./js/sass.worker.js";
 import "./js/reload.js";
 
-import "./sass/styles.scss";
+import "./sass/colors.scss";

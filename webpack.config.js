@@ -1,6 +1,4 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { loader } = require("mini-css-extract-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const sass = require("node-sass");
 const sassUtils = require("node-sass-utils")(sass);
 const sassVars = require(__dirname + "/src/js/theme.js");
@@ -64,12 +62,9 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: multi(
-          "raw-loader",
-          MiniCssExtractPlugin.loader + "!css-loader!sass-loader"
-        ),
+        loader: multi("raw-loader", "style-loader!css-loader!sass-loader"),
         // use: [
-        //   // "style-loader",
+        //   "style-loader",
         //   "css-loader",
         //   {
         //     loader: "sass-loader",
@@ -99,6 +94,7 @@ module.exports = {
         //       },
         //     },
         //   },
+        //   "raw-loader",
         // ],
       },
     ],
@@ -108,6 +104,5 @@ module.exports = {
       template: "./src/index.html",
       filename: "index.html",
     }),
-    new MiniCssExtractPlugin({ filename: "[name].css" }),
   ],
 };

@@ -1,4 +1,3 @@
-import "./sass.worker.js";
 import Sass from "./sass.js";
 
 import format from "!!raw-loader!../sass/color-formatting.scss";
