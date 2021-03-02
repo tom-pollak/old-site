@@ -1,5 +1,11 @@
-Sass.preloadFiles(
-  "./src/sass/",
+// import Worker from "./js/sass.worker.js";
+import Sass from "./sass.js";
+
+var sass = new Sass("./src/js/sass.worker.js");
+console.log(sass);
+
+sass.preloadFiles(
+  "../sass/",
   "",
   ["styles.scss", "colors.scss", "hue.scss"],
   function callback() {}
@@ -11,24 +17,24 @@ rangeSlider.addEventListener("change", handleUpdate);
 
 function handleUpdate() {
   var scss = "$hue: " + this.value + ";";
-  // Sass.readFile("colors.scss", function callback(content) {
+  // sass.readFile("colors.scss", function callback(content) {
   //   scss += content;
   // });
   // console.log(scss);
-  // Sass.readFile("styles.scss", function callback(content) {
+  // sass.readFile("styles.scss", function callback(content) {
   //   console.log(content);
   //   scss += content;
   // });
 
-  Sass.writeFile("hue.scss", scss);
-  Sass.readFile("hue.scss", function callback(content) {
+  sass.writeFile("hue.scss", scss);
+  sass.readFile("hue.scss", function callback(content) {
     console.log(content);
   });
-  Sass.readFile("styles.scss", function callback(content) {
+  sass.readFile("styles.scss", function callback(content) {
     console.log(content);
   });
-  Sass.compileFile("styles.scss", function callback(result) {
+  sass.compileFile("styles.scss", function callback(result) {
     console.log(result.text);
-    Sass.writeFile("styles.scss", result.text);
+    sass.writeFile("styles.scss", result.text);
   });
 }
