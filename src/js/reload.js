@@ -7,7 +7,7 @@ var sass = new Sass(__webpack_require__.p + "bundle.worker.js");
 sass.writeFile("colors.scss", colors);
 sass.writeFile("theme.scss", format);
 
-const rangeSlider = document.getElementById("color-picker");
+const rangeSlider = document.getElementById("color-slider");
 rangeSlider.addEventListener("mousemove", handleUpdate);
 rangeSlider.addEventListener("change", handleUpdate);
 
