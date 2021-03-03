@@ -4,8 +4,6 @@ import format from "!!raw-loader!../scss/theme.scss";
 import colors from "!!raw-loader!../scss/colors.scss";
 
 var sass = new Sass(__webpack_require__.p + "bundle.worker.js");
-sass.writeFile("colors.scss", colors);
-sass.writeFile("theme.scss", format);
 
 const rangeSlider = document.getElementById("color-slider");
 rangeSlider.addEventListener("mousemove", handleUpdate);
