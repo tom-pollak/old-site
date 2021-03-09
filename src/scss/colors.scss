@@ -16,7 +16,7 @@ $secondary-neutral-desaturated: desaturate-neutral($secondary-neutral);
 $secondary-light: lighten($secondary-color, 33%);
 $secondary-contrast: pick-contrast($secondary-color);
 
-$white: #fcf8f8;
+$white: #fdfcfd;
 $black: #2b2b2b;
 
 
@@ -26,16 +26,26 @@ h1 {
 
 button {
 	background-color: $primary-color;
+    color: $primary-contrast 
 }
 
-body {
-	background-color: $white;
-}
+// body {
+// 	background-color: $white;
+// 	// background-color: #5a8c8c;
+// }
 
-div.name {
-	background-color: $secondary-neutral-light
-}
+// div.name {
+// 	background-color: $secondary-neutral-light
+// }
 
 p {
 	color: $black
+}
+
+.mainbody {
+    background-color: $primary-neutral-desaturated;
+    background-image: linear-gradient($primary-neutral-desaturated, $secondary-neutral-desaturated);
+    position: absolute;
+    width: 100%;
+    height: 50%;
 }

@@ -1,5 +1,4 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
 const multi = require("multi-loader");
 
@@ -27,7 +26,8 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: multi("style-loader!css-loader!sass-loader", "raw-loader"),
+        // use: "raw-loader"
+        loader: multi("!style-loader!css-loader!sass-loader", "raw-loader"),
       },
       {
         test: /\.(png|jpe?g|gif|woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/i,
@@ -48,6 +48,5 @@ module.exports = {
       template: "./templates/index.html",
       filename: "index.html",
     }),
-    new MiniCssExtractPlugin(),
   ],
 };
