@@ -59,10 +59,5 @@ input.color-slider {
 }
 
 input.color-slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
   background-color: $primary-color;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  cursor: pointer;
 }
