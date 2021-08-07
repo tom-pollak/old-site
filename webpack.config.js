@@ -1,10 +1,13 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 const multi = require("multi-loader");
+const tailwindcss = require("tailwindcss");
+const autoprefixer = require("autoprefixer");
+const markdownPlugin = require("markdown-html-webpack-plugin");
 
 const PATHS = {
   src: path.join(__dirname, "src"),
-  dist: path.join(__dirname, "dist"),
+  pages: path.join(__dirname, "dist"),
 };
 
 module.exports = {
@@ -12,7 +15,7 @@ module.exports = {
   target: "node",
   entry: path.join(PATHS.src, "main.js"),
   output: {
-    path: PATHS.dist,
+    path: PATHS.pages,
     filename: "bundle.js",
   },
   module: {
@@ -41,12 +44,42 @@ module.exports = {
           },
         ],
       },
+      // {
+      //   test: /\.(md)$/,
+      //   use: [
+      //     "html-loader",
+      //     {
+      //       loader: "markdown-loader",
+      //       options: {
+      //         highlight: (code, lang) => {
+      //           if (
+      //             !lang ||
+      //             ["text", "literal", "nohighlight"].includes(lang)
+      //           ) {
+      //             return `<pre class="hljs">${code}</pre>`;
+      //           }
+      //           const html = highlight.highlight(lang, code).value;
+      //           return `<span class="hljs">${html}</span>`;
+      //         },
+      //       },
+      //     },
+      //   ],
+      // },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./templates/index.html",
       filename: "index.html",
+      cache: true,
     }),
+    new markdownPlugin({
+      filePath: "../md",
+      exportPath: "../pages",
+      template: "../templates/markdown.html",
+    }),
+    // "postcss-preset-env",
+    tailwindcss,
+    autoprefixer,
   ],
 };

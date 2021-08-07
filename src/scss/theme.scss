@@ -105,3 +105,10 @@ $second-color: complement($first-color);
   }
 }
 
+@function pick-background($color) {
+  @if is-high-key-value($color) {
+    @return #f7fafc;
+  } @else {
+    @return #1a202c;
+  }
+}

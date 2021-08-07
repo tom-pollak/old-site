@@ -19,8 +19,14 @@ $secondary-contrast: pick-contrast($secondary-color);
 $white: #fdfcfd;
 $black: #2b2b2b;
 
+$background-color: pick-background($primary-color);
+
 h1 {
   color: $secondary-neutral-dark;
+}
+
+a {
+  color: $primary-contrast;
 }
 
 button {
@@ -41,8 +47,12 @@ p {
   color: $primary-contrast;
 }
 
+body {
+  background-color: $secondary-neutral-desaturated;
+}
+
 .mainbody {
-  background-color: $primary-neutral-desaturated;
+  background-color: $secondary-neutral-desaturated;
   background-image: linear-gradient(
     $primary-neutral-desaturated,
     $secondary-neutral-desaturated
@@ -52,6 +62,21 @@ p {
   height: 50%;
 }
 
+.article {
+  background-color: $background-color;
+}
+
+p.article {
+  color: pick-contrast($background-color);
+}
+
+a.article {
+  color: pick-contrast($background-color);
+}
+
+h1.article {
+  color: pick-contrast($background-color);
+}
 input.color-slider {
   -webkit-appearance: none;
   background-color: #d3d3d3;

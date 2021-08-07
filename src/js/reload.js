@@ -17,7 +17,7 @@ style.type = "text/css";
 
 const rangeSlider = document.getElementById("color-slider");
 
-rangeSlider.oninput = function () {
+rangeSlider.onchange = function () {
   var hue = "$hue: " + (this.value % 360) + ";";
   sass.writeFile("hue.scss", hue);
   sass.compileFile("colors.scss", function callback(result) {
